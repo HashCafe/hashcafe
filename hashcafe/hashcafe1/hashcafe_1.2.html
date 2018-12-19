@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="hashcafe.js"></script>
+  <title>Hash Cafe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="animation: fadeIn 2s ease 0s 1 normal;">
+  <div style=" background: #FFE4B5 ; height:750px; top:0px; box-shadow:0px 0px 5px 3px rgba(0, 0, 0, 0.2) inset;">
+    <!--ヘッダー-->
+    <header>
+      <h2 style="color:#20B2AA; background:#FDF5E6; height:70px; padding-top:10px;margin-top:0px; margin-bottom:10px; font-size:43px;
+      text-shadow: 1px 1px 0 #FFFFFF;  text-align:center; font-family:Avenir;　box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);-webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+      -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6); ">
+        <img src="img/logo.png" alt="image" style="width: 29px; height: 29px;">
+        Hash Cafe</h2>
+    </header>
+
+    <!--上記説明文-->
+    <div style="font-size:13px; padding-top:5px;  ">
+      <h3 style="margin-left:10px; padding-left:15px; display:inline-block;  margin:0 auto;">
+        チケットをタップすると、無料でコーヒーが飲めます。
+    </div>
+
+    <!-- <div id="ticket"> -->
+    <h5 style="text-align:center;">
+
+    <script>
+
+    //チケットを表敬式で複数枚表示
+    document.writeln('<table>');　　
+
+    //3段まで表示
+    for(var i=0; i<3; i++){　
+        document.writeln('<tr>');
+        console.log(i + 1 + "回改行しました");
+
+        //1段4枚まで表示、それ以降は改行
+        for(var j=0; j<4; j++){　
+          document.writeln('<td>');
+          document.writeln('<img src="img/ticket.png" onclick="use_ticket()">');
+          document.writeln('</td>');
+          console.log("<td>" + j);
+        }
+        document.writeln('</tr>');
+      }
+    document.writeln('</table>');
+
+    // IFTTへ秘密鍵送信
+    function use_ticket(){
+      ret = confirm("チケットを使います。よろしい？"); //チケットを使うかの確認
+      const request = new XMLHttpRequest(); // XMLHttpRequestを取得
+      request.open("GET", "https://maker.ifttt.com/trigger/button/with/key/RkZalzaAOmrR-1--cYBSbazwJpnd3AHwmrZco6nanE", true);
+      　
+      // "はい""を押したら前行のiftttの秘密鍵を送信
+        if(ret == true) {　
+          request.send(null);
+          return_message = alert("もしおごってくれた人に会ったらごちそうさもを言おう！そして次はあなたがごちそうしてみよう！");　// 終了後メッセージを送信
+        }
+      }
+
+    </script>
+
+        <img src="img/ticket.png"/>
+        </h5>
+<!-- </div> -->
+    <div style="padding:5px 30px;">
+      <h5 style="background-color: #F8F8FF; padding:15px 15px;font-size:12px; margin-top:5px; box-shadow:0px 0px 5px; ">
+        HashCafe realized immediate settlement by utilizing Lightning Network that scailing solution is unique to Bitcoin.<br>
+        　<br>※For purchase, Bitcoin and Wallet are necessary.</h5>
+    </div>
+  </div>
+</body>
+</html>

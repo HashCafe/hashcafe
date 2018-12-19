@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="hashcafe.js"></script>
+  <title>Hash Cafe</title>
+  <link rel=“stylesheet” href=“stylee.css”>
+</head>
+
+<body style="animation: fadeIn 2s ease 0s 1 normal;">
+
+    <!--ヘッダー-->
+    <header>
+      <h1 style="color:#20B2AA; background:#FDF5E6; height:70px; padding-top:10px;margin-top:0px; margin-bottom:10px;
+      text-shadow: 1px 1px 0 #FFFFFF;  text-align:center; font-family:Avenir;　box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);-webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+      -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6); ">
+        Hash Cafe
+      </h1>
+    </header>
+
+    <!--上記説明文-->
+    <div class="explanation" style="padding-top:5px;">
+      <h3 style="margin-left:10px; padding-left:15px; display:inline-block;  margin:0 auto;">
+        Please tap the image to buy the coffee, and BTCPAY's QRcode will be displayed.<br>
+        But if you treat other people to a couple of coffee, tap the image to buy after setting name and extra number.
+      </h3>
+    </div>
+
+    <!--普通の支払い-->
+    <!-- <div style="overflow:hidden; text-align:inherit;"> -->
+      <div style="float: left; margin-left: 30px; margin-right:40px;">
+        <h5 style="font-size:12px; text-shadow: 1px 1px 0 #000; color:#0000; font-family:GungsuhChe;">
+          Lightning Coffee </h5>
+        <form method="POST" action="https://pay-testnet.hashhub.me/apps/xamAQqoDBUBJvT7E1iMA6ps9fCh/pos">
+          <input type="hidden" name="email" value="customer@example.com" />
+          <input type="hidden" name="orderId" value="CustomOrderId" />
+          <input type="hidden" name="notificationUrl" value="https://maker.ifttt.com/trigger/button/with/key/EDazhE5x4LtwHxKtIbSO2" />
+          <input type="hidden" name="redirectUrl" value="https://example.com/thanksyou" />
+          <button type="submit" name="choiceKey" value="tea" style="box-shadow:0px 3px 3px rgba(0, 0, 0, 0.8); padding:0 0; border:0 0;">
+            <img src="img/coffee3.jpg" alt="image" style="width:100px; height: 100px;">
+          </button>
+      </div>
+
+      <!-- ごちめし使う -->
+      <div style="text-align:center;">
+        <h5 style="text-align:center; font-size:12px; text-shadow: 1px 1px 0 #000; color:#0000; margin:10px auto; padding-top: 10px; font-family:GungsuhChe;">
+          ごちめしチケットを使う </h5>
+        <a href="hashcafe_1.2.html">
+          <img src="img/gochi.jpg" alt="image" style="width:150px; height: 130px;box-shadow:0px 3px 3px rgba(0, 0, 0, 0.8); padding:10px 0; border:0 0;">
+        </a>
+      </div>
+
+
+      <!-- ごちめし支払い -->
+      <!-- <div style="float: left; margin-left:20px;">
+        <h5 style="text-align:center; font-size:12px; text-shadow: 1px 1px 0 #000; color:#0000; margin:10px auto; padding-top: 10px; font-family:GungsuhChe;">
+          Coffeeを奢る </h5>
+        <div style="text-align:center;">
+          <form method="POST" action="https://maker.ifttt.com/trigger/button/with/key/RkZalzaAOmrR-1--cYBSbazwJpnd3AHwmrZco6nanE" onsubmit="ticket_counts(2)">
+            <input type="hidden" name="email" value="customer@example.com" />
+            <input type="hidden" name="orderId" value="CustomOrderId" />
+            <input type="hidden" name="redirectUrl" value="https://example.com/thanksyou"/>
+            <button type="submit" name="choiceKey" value="tea">
+              <img src="img/gorira.jpg" alt="image" style="width:100px; height: 150px;">
+            </button>
+
+            <br>
+            <div>
+              <input id="ticket" class="form-control" type="number" min="1" max="5" name="amount" placeholder="Amount"></div>
+            </div>
+          </form>
+      </div> -->
+    <!-- </div> -->
+
+    <!--下記説明文-->
+    <div style="padding:200px 30px; margin-top:30px;">
+      <h5 style="background-color: #F8F8FF; padding:15px 15px;font-size:12px; margin-top:5px; box-shadow:0px 0px 5px; ">
+        HashCafe realized immediate settlement by utilizing Lightning Network that scailing solution is unique to Bitcoin.<br>
+        　<br>※For purchase, Bitcoin and Wallet are necessary.</h5>
+    </div>
+<script>
+
+//支払いチケット数
+var amount_ticket=0
+
+//支払った分だけチケットを増やす
+ function ticket_counts(amount_ticket){
+   Amount_ticket++;
+   console.log(Amount_ticket)
+ }
+</script>
+
+</body>
+
+</html>
